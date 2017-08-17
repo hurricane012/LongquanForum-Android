@@ -6,8 +6,10 @@
     <string name="messenger_send_button_text">Send</string>
     <string name="mc_froum_about_desc">北京龙泉寺官方论坛</string>
     <string name="mc_froum_about_email">longquanluntan@163.com</string>
+    <string name="mc_froum_about_emails">常用邮箱</string>
     <string name="mc_froum_about_web">http://forum.longquanzs.org/</string>
     <string name="mc_froum_about_qq" />
+    <string name="mc_froum_about_QQ">QQ</string>
     <string name="mc_froum_about_tel" />
     <string name="mc_froum_about_weibo_qq">http://t.qq.com/xuechengfashi</string>
     <string name="mc_froum_about_weibo_sina">http://weibo.com/xuecheng</string>
@@ -40,10 +42,6 @@
     <string name="mc_forum_get_at_comment_fail">获取列表失败</string>
     <string name="mc_forum_msg_send">发送</string>
     <string name="mc_forum_reply_edit">你怎么看？</string>
-    <string name="mc_froum_email">Email</string>
-    <string name="mc_froum_graduate">毕业院校</string>
-    <string name="mc_froum_company">公司</string>
-    <string name="mc_froum_nickname">昵称</string>
     <string name="mc_forum_article_title">文章详情</string>
     <string name="mc_forum_article_not_comment">此文章不允许评论</string>
     <string name="mc_forum_publish_min_length_error">还是说些什么吧</string>
@@ -75,6 +73,7 @@
     <string name="mc_forum_warn_photo_reply_topic">回复</string>
     <string name="mc_forum_role_vistor_user">游客</string>
     <string name="mc_forum_role_ordinary_reg_user">普通注册用户</string>
+    <string name="mc_forum_role_user">用户</string>
     <string name="mc_forum_role_moderator">版主</string>
     <string name="mc_forum_role_administrator">管理员</string>
     <string name="mc_forum_role_super_administrator">超级管理员</string>
@@ -147,6 +146,10 @@
     <string name="mc_forum_user_register_succ">恭喜 注册成功！</string>
     <string name="mc_forum_user_register_succ_title">注册成功</string>
     <string name="mc_forum_user_register_succ_warn">完善资料</string>
+    <string name="mc_forum_user_graduate">毕业院校</string>
+    <string name="mc_forum_user_qualification">学历</string>
+    <string name="mc_forum_user_company">公司</string>
+    <string name="mc_forum_user_occupation">职业</string>
     <string name="mc_forum_user_save_info">保存资料</string>
     <string name="mc_forum_user_see_anywhere">以后再说</string>
     <string name="mc_forum_user_perfect_ing">正在完善，请稍候..</string>
@@ -524,6 +527,7 @@
     <string name="mc_forum_verify_hint_input_phonenum">请输入手机号</string>
     <string name="mc_forum_verify_hint_input_code">请输入验证码</string>
     <string name="mc_forum_verify_title">手机验证</string>
+    <string name="mc_forum_verify_mobile">手机</string>
     <string name="mc_forum_verify_wait_get_code">秒后获取</string>
     <string name="mc_forum_verify_get_code_ing">获取验证码请稍后</string>
     <string name="mc_forum_verify_check_code_ing">验证中请稍后</string>
@@ -603,7 +607,6 @@
     <string name="mc_forum_load_fail">加载失败</string>
     <string name="mc_forum_loaded">已加载完成</string>
     <string name="mc_forum_no_content">暂无相关内容</string>
-    <string name="mc_forum_no_collection">暂无收藏</string>
     <string name="mc_forum_just_now">刚刚</string>
     <string name="mc_forum_add_to_sys_gallery_succ">成功添加到系统相册！</string>
     <string name="mc_forum_downloading">正在下载请稍后</string>
@@ -633,7 +636,6 @@
     <string name="mc_forum_talk_img_num">张图片</string>
     <string name="mc_forum_talk_text">话题</string>
     <string name="mc_forum_talk_topic_text">话题帖子</string>
-    <string name="mc_forum_discover_myphone">手机</string>
     <string name="mc_forum_discover_phone">我的手机</string>
     <string name="mc_forum_create_talk_input_title">请输入标题</string>
     <string name="mc_forum_create_talk_select_time">请选择时间</string>
@@ -1029,7 +1031,6 @@
     <string name="vp_privacy_finish">完成</string>
     <string name="vp_option_report">举报</string>
     <string name="vp_option_submit">提交</string>
-    <string name="vp_option_select">请选择...</string>
     <string name="vp_option_select_report_type">请选择举报类型</string>
     <string name="vp_option_report_success">举报成功</string>
     <string name="vp_option_report_type">请选择举报类型</string>

@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_collection"
+    android:id="@+id/activity_partake"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:orientation="vertical"
-    >
+    android:background="#FFFFFF"
+    tools:context="com.mobcent.discuz.module.user.activity.PartakeActivity">
     <include
         layout="@layout/include_app_action_bar" />
     <com.jcodecraeer.xrecyclerview.XRecyclerView
-        android:id="@+id/xr_test"
+        android:id="@+id/xr_partake"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
         android:background="#FFFFFF"
         />
-    <TextView
-        android:id="@+id/collection_text_nothing"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        android:text="暂无收藏"
-        android:textSize="32dp"
-        android:gravity="center"/>
 </LinearLayout>

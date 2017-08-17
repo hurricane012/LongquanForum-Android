@@ -15,6 +15,7 @@ import com.appbyme.dev.R;
 import com.mobcent.discuz.activity.LoginUtils;
 import com.mobcent.discuz.base.WebParamsMap;
 import com.mobcent.discuz.module.user.adapter.UserPublishAdapter;
+import com.mobcent.discuz.module.user.interFace.NetloadFinished;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,13 +36,16 @@ import static com.mobcent.discuz.module.user.activity.UserHomeActivity.uid_myfri
  * @author 张春生
  */
 public class UserHomePublishFragment extends BaseUserInnerScrollFragment  {
+    private int listsize;
     private int UserHomeActivity=1;
     private TextView text_nothing;
     private RecyclerView mPublishRecyclerView;
+    static NetloadFinished activity;
     UserPublishAdapter adapter;
     List<Publish> datas;
 
-    public static UserHomePublishFragment newInstance() {
+    public static UserHomePublishFragment newInstance(NetloadFinished netloadFinished) {
+        activity = netloadFinished;
         return new UserHomePublishFragment();
     }
 
@@ -74,7 +78,7 @@ public class UserHomePublishFragment extends BaseUserInnerScrollFragment  {
             DiscuzRetrofit.getUserInfoService(getActivity()).requestUserPublish(WebParamsMap.user_public(uid_myfriendsSearch)).subscribe(new HTTPSubscriber<PublishResult>() {
                 @Override
                 public void onSuccess(PublishResult userResult) {
-                    userResult.getBody();
+                    listsize=userResult.list.size();
                     if(userResult!=null && userResult.list!=null){
                         if (userResult.list.size()!=0){
                             text_nothing.setVisibility(View.INVISIBLE);
@@ -83,6 +87,7 @@ public class UserHomePublishFragment extends BaseUserInnerScrollFragment  {
                         }
                         datas.addAll(userResult.list);
                         adapter.notifyDataSetChanged();
+                        activity.loadfinish(userResult.total_num);
                     }
                 }
 
@@ -98,7 +103,7 @@ public class UserHomePublishFragment extends BaseUserInnerScrollFragment  {
             DiscuzRetrofit.getUserInfoService(getActivity()).requestUserPublish(WebParamsMap.user_public(LoginUtils.getInstance().getUserId())).subscribe(new HTTPSubscriber<PublishResult>() {
                 @Override
                 public void onSuccess(PublishResult userResult) {
-                    userResult.getBody();
+                    listsize=userResult.list.size();
                     if(userResult!=null && userResult.list!=null){
                         if (userResult.list.size()!=0){
                             text_nothing.setVisibility(View.INVISIBLE);
@@ -107,6 +112,7 @@ public class UserHomePublishFragment extends BaseUserInnerScrollFragment  {
                         }
                         datas.addAll(userResult.list);
                         adapter.notifyDataSetChanged();
+                        activity.loadfinish(userResult.total_num);
                     }
                 }
 
@@ -152,4 +158,5 @@ public class UserHomePublishFragment extends BaseUserInnerScrollFragment  {
             }
         });
     }
+
 }

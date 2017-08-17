@@ -12,7 +12,7 @@ public class WebParamsValue {
     public static final String imei = "868029029800109";
     public static final String platType = "1";
     public static final String imsi = "460001001651621";
-    public static final String accessSecret ="6e9f2606bed4b530dcb58ff210299";
+    public static final String accessSecret = "6e9f2606bed4b530dcb58ff210299";
     public static final String egnVersion = "v2091.5";
     //public static final String egnVersion = "v2035.2";
     public static final String forumKey = "BW0L5ISVRsOTVLCTJx";

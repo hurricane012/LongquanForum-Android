@@ -26,7 +26,7 @@ import discuz.com.net.service.model.me.UserResult;
 import discuz.com.retrofit.library.HTTPSubscriber;
 
 import static android.widget.Toast.makeText;
-import static com.mobcent.discuz.module.user.adapter.myFriends_adapter.Myfriends_adapter.datas;
+import static com.mobcent.discuz.module.user.adapter.myFriends_adapter.Myfriends_adapter.datas_myFriendsSearch;
 
 public class MyFriendsSearchActivity extends BasePopActivity {
     java.util.List<Lists> list;
@@ -40,7 +40,7 @@ public class MyFriendsSearchActivity extends BasePopActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getAppActionBar().setTitle(R.string.mc_forum_search_user);
+        getAppActionBar().setTitle(R.string.mc_forum_role_user);
         //adapter=new Myfriends_adapter(MyFriendsSearchActivity.this,list);
         adapter=new Myfriends_adapter();
         xRecycler= (XRecyclerView) findViewById(R.id.xr_test_myfrieds_search);
@@ -130,7 +130,7 @@ public class MyFriendsSearchActivity extends BasePopActivity {
                 adapter.setOnItemClickLitener(new CollectionRecycle_adapter.OnItemClickLitener() {
                     @Override
                     public void onitemclick(View view, int pos) {
-                        final String uid=Integer.toString(datas.get(pos).getUid());
+                        final String uid=Integer.toString(datas_myFriendsSearch.get(pos).getUid());
                         DiscuzRetrofit.getUserInfoService(MyFriendsSearchActivity.this).requestUserInfo(LoginUtils.getInstance().getUserId(), WebParamsMap.userinfo(uid)).subscribe(new HTTPSubscriber<UserResult>() {
                             @Override
                             public void onSuccess(UserResult myFriends) {
@@ -181,7 +181,10 @@ public class MyFriendsSearchActivity extends BasePopActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        datas.clear();
+        try {
+            datas_myFriendsSearch.clear();
+        } catch (NullPointerException e) {
+        }
     }
 
     @Override

@@ -8,6 +8,7 @@ import discuz.com.net.service.model.bean.block.Block;
 import discuz.com.net.service.model.bean.collectionBean.ColoectionBean;
 import discuz.com.net.service.model.bean.compileBeans.CompileBeans;
 import discuz.com.net.service.model.bean.editInfoBean.EditInfoBean;
+import discuz.com.net.service.model.bean.my_reply.MyReplyBean;
 import discuz.com.net.service.model.bean.myfriendsHomepage.MyfriendsHomepage;
 import discuz.com.net.service.model.bean.mypublicbean.MyPublicBean;
 import discuz.com.net.service.model.bean.registbean.RegistBean;
@@ -110,4 +111,9 @@ public interface UserInfoService {
     @FormUrlEncoded
     @POST("index.php?r=user/useradmin")
     Observable<AddFollowBean> unFollow(@Field("userId")String userId,@FieldMap Map<String,String> params);
+
+    /**我的回复*/
+    @FormUrlEncoded
+    @POST("index.php?r=user/topiclist")
+    Observable<MyReplyBean> partake(@Field("userId")String userId, @FieldMap Map<String,String> params);
 }

@@ -20,6 +20,7 @@ import com.mobcent.discuz.activity.WebActivity;
 import com.mobcent.discuz.base.WebParamsMap;
 import com.mobcent.discuz.module.user.adapter.UserHomeAdapter;
 import com.mobcent.discuz.module.user.fragment.UserHomeInformationFragment;
+import com.mobcent.discuz.module.user.interFace.NetloadFinished;
 import com.mobcent.discuz.module.user.view.UserHomeCenterHeader;
 
 import discuz.com.net.service.DiscuzRetrofit;
@@ -38,11 +39,12 @@ import static com.appbyme.dev.R.string.mc_forum_del_friends;
  * Created by pangxiaomin on 16/11/20
  * 用户资料页
  */
-public class UserHomeActivity extends BasePopActivity implements View.OnClickListener{
+public class UserHomeActivity extends BasePopActivity implements View.OnClickListener,NetloadFinished{
     private String userName;
     private String uid;
     private int isFollow;//0关注  1 未关注
     private int isFriend;//好友(为0则不是好友)
+    private int count;
     private ScrollableLayout mScrollableLayout;
     private UserHomeCenterHeader mUserCenterHeader;
     private SlidingTabLayout mSlideTabLayout;
@@ -163,12 +165,13 @@ public class UserHomeActivity extends BasePopActivity implements View.OnClickLis
         DiscuzRetrofit.getUserInfoService(this).requestUserInfo(uid_myfriendsSearch,WebParamsMap.map()).subscribe(new HTTPSubscriber<UserResult>() {
             @Override
             public void onSuccess(UserResult userResult) {
-                mUserCenterHeader.setContent(userResult);
+                mUserCenterHeader.setContent(UserHomeActivity.this,userResult);
                 ((UserHomeInformationFragment)mUserHomeAdapter.getItem(1)).setContent(userResult.getBody().getProfileList(),
                         userResult.getBody().getCreditList());
                 userName=userResult.getName();
                 isFollow=userResult.getIs_follow();
                 isFriend=userResult.getIs_friend();
+                count=userResult.getBody().getCreditList().size();
                 judgementfriends(isFollow,isFriend);
             }
 
@@ -293,9 +296,10 @@ public class UserHomeActivity extends BasePopActivity implements View.OnClickLis
             }
         }
     }
+    public NetloadFinished netloadFinished;
 
     private void initData(){
-        mUserHomeAdapter = new UserHomeAdapter(getSupportFragmentManager());
+        mUserHomeAdapter = new UserHomeAdapter(UserHomeActivity.this,getSupportFragmentManager());
         mUserViewPager.setAdapter(mUserHomeAdapter);
         mSlideTabLayout.setViewPager(mUserViewPager);
         mScrollableLayout.setDraggableView(mSlideTabLayout);
@@ -342,7 +346,7 @@ public class UserHomeActivity extends BasePopActivity implements View.OnClickLis
         DiscuzRetrofit.getUserInfoService(this).requestUserInfo(LoginUtils.getInstance().getUserId(),WebParamsMap.map()).subscribe(new HTTPSubscriber<UserResult>() {
             @Override
             public void onSuccess(UserResult userResult) {
-                mUserCenterHeader.setContent(userResult);
+                mUserCenterHeader.setContent(UserHomeActivity.this,userResult);
                 ((UserHomeInformationFragment)mUserHomeAdapter.getItem(1)).setContent(userResult.getBody().getProfileList(),
                         userResult.getBody().getCreditList());
             }
@@ -354,5 +358,13 @@ public class UserHomeActivity extends BasePopActivity implements View.OnClickLis
         });
     }
 
-
+    @Override
+    public void loadfinish(int num) {
+        if (num!=0){
+            mUserHomeAdapter.PAGE_TITLES[0]="发表("+num+")";
+        }else {
+            mUserHomeAdapter.PAGE_TITLES[0]="发表";
+        }
+        mSlideTabLayout.setViewPager(mUserViewPager);
+    }
 }

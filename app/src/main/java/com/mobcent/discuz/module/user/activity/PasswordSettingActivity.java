@@ -1,7 +1,7 @@
 package com.mobcent.discuz.module.user.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.app.Activity;
 
 import com.appbyme.dev.R;
 
@@ -15,4 +15,5 @@ public class PasswordSettingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.password_setting_fragment);
     }
+
 }

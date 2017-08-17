@@ -51,4 +51,6 @@ public abstract  class BaseFragment extends Fragment implements HttpResponseHand
     protected <T> T $(View view, int id) {
         return (T) view.findViewById(id);
     }
+
+
 }

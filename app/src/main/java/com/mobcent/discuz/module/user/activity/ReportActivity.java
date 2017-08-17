@@ -29,7 +29,6 @@ public class ReportActivity extends BasePopActivity {
     @Override
     public void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
-        getAppActionBar().setTitle(R.string.mc_forum_topic_function_report_user);
         Intent intent=getIntent();
         uid=intent.getStringExtra("uid");
         reason= (TextView) findViewById(R.id.report_reason);
@@ -62,7 +61,6 @@ public class ReportActivity extends BasePopActivity {
         String intent= null;
         try {
             intent = paramIntent.getStringExtra("reason");
-            reason.setText(intent);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -75,7 +73,7 @@ public class ReportActivity extends BasePopActivity {
 
             @Override
             public void onSuccess(Block block) {
-                if (block.getErrcode().equals(getResources().getString(R.string.vp_option_report_success))){
+                if (block.getErrcode().equals("举报成功")){
                     Toast.makeText(ReportActivity.this,R.string.vp_option_report_success,Toast.LENGTH_SHORT).show();
                     finish();
                 }else {

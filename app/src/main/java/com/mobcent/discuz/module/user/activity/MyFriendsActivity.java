@@ -61,6 +61,16 @@ public class MyFriendsActivity extends BasePopActivity {
         newWork();
     }
 
+    @Override
+    protected Fragment initContentFragment() {
+        return null;
+    }
+
+    @Override
+    public int initLayout() {
+        return R.layout.activity_my_friend;
+    }
+
     private void newWork() {
         String uid=LoginUtils.getInstance().getUserId();
         DiscuzRetrofit.getUserInfoService(this).friendList(WebParamsMap.myfriends_homepage(uid)).subscribe(new HTTPSubscriber<MyfriendsHomepage>(){
@@ -106,13 +116,5 @@ public class MyFriendsActivity extends BasePopActivity {
         });
     }
 
-    @Override
-    protected Fragment initContentFragment() {
-        return null;
-    }
 
-    @Override
-    public int initLayout() {
-        return R.layout.activity_my_friend;
-    }
 }

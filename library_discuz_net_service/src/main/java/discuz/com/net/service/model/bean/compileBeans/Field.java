@@ -21,7 +21,7 @@ public class Field {
     private int size;
     @JsonProperty("nowSet")
     private Object nowSet;
-    //private java.util.List<Choices> choices;
+    //private java.util.Lists<Choices> choices;
 
 
 
@@ -33,11 +33,11 @@ public class Field {
         this.nowSet = nowSet;
     }
 
-//    public List<Choices> getChoices() {
+//    public Lists<Choices> getChoices() {
 //        return choices;
 //    }
 //
-//    public void setChoices(List<Choices> choices) {
+//    public void setChoices(Lists<Choices> choices) {
 //        this.choices = choices;
 //    }
 

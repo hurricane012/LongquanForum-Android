@@ -54,7 +54,7 @@ public class MainWeixinTitleRightActivity extends Activity
 			public void onClick(View v) {
 				//finish();
 				Intent mIntent = new Intent();
-				mIntent.putExtra("reason",getResources().getString(R.string.mc_forum_report_adult_content));
+				mIntent.putExtra("reason",R.string.mc_forum_report_adult_content);
 				MainWeixinTitleRightActivity.this.setResult(101, mIntent);
 				finish();
 			}
@@ -63,7 +63,7 @@ public class MainWeixinTitleRightActivity extends Activity
 			@Override
 			public void onClick(View v) {
 				Intent mIntent = new Intent();
-				mIntent.putExtra("reason", getResources().getString(R.string.mc_forum_polity_sensi_content));
+				mIntent.putExtra("reason", R.string.mc_forum_polity_sensi_content);
 				MainWeixinTitleRightActivity.this.setResult(101, mIntent);
 				finish();
 			}
@@ -72,7 +72,7 @@ public class MainWeixinTitleRightActivity extends Activity
 			@Override
 			public void onClick(View v) {
 				Intent mIntent = new Intent();
-				mIntent.putExtra("reason",getResources().getString(R.string.mc_forum_vulgar_speech));
+				mIntent.putExtra("reason",R.string.mc_forum_vulgar_speech);
 				MainWeixinTitleRightActivity.this.setResult(101, mIntent);
 				finish();
 			}
@@ -81,7 +81,7 @@ public class MainWeixinTitleRightActivity extends Activity
 			@Override
 			public void onClick(View v) {
 				Intent mIntent = new Intent();
-				mIntent.putExtra("reason",getResources().getString(R.string.mc_forum_other_reason));
+				mIntent.putExtra("reason",R.string.mc_forum_other_reason);
 				MainWeixinTitleRightActivity.this.setResult(101, mIntent);
 				finish();
 			}

@@ -15,9 +15,9 @@ public class WebParamsMap {
     public static HashMap<String,String> baseMap(){
         HashMap<String,String> map = new HashMap<>();
         map.put(WebParamsKey.packageName, WebParamsValue.packageName);
+        map.put(WebParamsKey.accessToken, WebParamsValue.accessToken);
         map.put(WebParamsKey.appName, WebParamsValue.appName);
-        map.put(WebParamsKey.accessToken, LoginUtils.getInstance().getAccessToken());
-        map.put(WebParamsKey.accessSecret, LoginUtils.getInstance().getAccessSecret());
+        map.put(WebParamsKey.accessSecret,  WebParamsValue.accessSecret);
         map.put(WebParamsKey.sdkVersion, WebParamsValue.sdkVersion);
         map.put(WebParamsKey.forumKey,WebParamsValue.forumKey);
         map.put(WebParamsKey.imei, WebParamsValue.imei);
@@ -250,6 +250,46 @@ public class WebParamsMap {
         map.put("uid", uid);
         map.put("type", "unfollow");
         map.put("apphash", "06661a55");
+        map.put("sdkType", "");
+        map.putAll(baseMap());
+        return map;
+    }
+
+//    //我的回复
+//    public static HashMap<String,String> myReply(){
+//        HashMap<String,String> map = new HashMap<>();
+//        map.put("packageName", "com.appbyme.app178470");
+//        map.put("forumType", "7");
+//        map.put("longitude", "116.5892944");
+//        map.put("pageSize", "20");
+//        map.put("accessToken", "460cf9492dc93a6b3efdfd0736365");
+//        map.put("appName", "龙泉论坛");
+//        map.put("egnVersion", "v2102.5");
+//        map.put("accessSecret", "1cc2c488c7de6f17528cf77ae7678");
+//        map.put("sdkVersion", "2.5.0.0");
+//        map.put("imei", "868029029800109");
+//        map.put("apphash", "bfafdcda");
+//        map.put("latitude", "39.91361618");
+//        map.put("forumKey", "BW0L5ISVRsOTVLCTJx");
+//        map.put("type", "reply");
+//        map.put("page", "1");
+//        map.put("platType", "1");
+//        map.put("imsi", "460001001651621");
+//        map.put("sdkType", "");
+//
+//        return map;
+//    }
+    //我的回复(备用)
+    public static HashMap<String,String> myReply(String page){
+        HashMap<String,String> map = new HashMap<>();
+        map.put("longitude", "116.5892944");
+        map.put("pageSize", "20");
+        //map.put("apphash","bfafdcda");
+        map.put("apphash","403edd50");
+        map.put("latitude", "39.91361618");
+        map.put("uid",LoginUtils.getInstance().getUserId());//222436
+        map.put("type", "reply");
+        map.put("page",page);
         map.put("sdkType", "");
         map.putAll(baseMap());
         return map;

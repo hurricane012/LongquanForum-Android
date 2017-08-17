@@ -1,5 +1,4 @@
-package com.mobcent.discuz.module.user.adapter.collectionAdapter;
-
+package com.mobcent.discuz.module.user.adapter.PartakeAdapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,51 +12,52 @@ import android.widget.TextView;
 
 import com.appbyme.dev.R;
 import com.bumptech.glide.Glide;
+import com.mobcent.discuz.module.user.adapter.collectionAdapter.CollectionRecycle_adapter;
 import com.mobcent.discuz.uitls.DateUtils;
 
 import java.util.List;
 
-import discuz.com.net.service.model.bean.collectionBean.CollectionList;
+import discuz.com.net.service.model.bean.my_reply.Lists;
 
 /**
- * Created by $Createdbymynameon on 2017/3/23.
+ * Created by $Createdbymynameon on 2017/8/7.
  */
 
-public class CollectionRecycle_adapter extends RecyclerView.Adapter<CollectionRecycle_adapter.ViewHolder> {
-    private List<CollectionList> datas;
+public class PartakeAdapter extends RecyclerView.Adapter<PartakeAdapter.ViewHolder>  {
+    public static List<Lists> datas_PartakeMyReply;
     private Context context;
-    public  CollectionRecycle_adapter(Context context, List datas) {
-        this.datas = datas;
+
+    public PartakeAdapter(Context context, List<Lists> datas) {
+        if (datas_PartakeMyReply==null){
+            this.datas_PartakeMyReply= datas;
+        }else {
+            datas_PartakeMyReply.addAll(datas);
+            notifyDataSetChanged();
+        }
         this.context=context;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public PartakeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_collection_follow,viewGroup,false);
-        ViewHolder vh = new ViewHolder(view);
+        PartakeAdapter.ViewHolder vh = new PartakeAdapter.ViewHolder(view);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
-        //holder.mTextView.setText(datas.get(position));
-
-        int essence=datas.get(position).getEssence();
+    public void onBindViewHolder(final PartakeAdapter.ViewHolder holder, int position) {
+        int essence=datas_PartakeMyReply.get(position).getEssence();
         if (essence==0){
             holder.cream.setVisibility(View.GONE);
         }else {
             holder.cream.setVisibility(View.VISIBLE);
         }
-        String date= DateUtils.stampToDate(datas.get(position).getLast_reply_date());
-        Log.i("TAG", "date="+date);
-        holder.title.setText(datas.get(position).getTitle());
+        String date= DateUtils.stampToDate(datas_PartakeMyReply.get(position).getLast_reply_date());
+        holder.title.setText(datas_PartakeMyReply.get(position).getTitle());
         holder.date.setText(date);
-        holder.name.setText(datas.get(position).getBoard_name());
-        holder.readed.setText(datas.get(position).getHits()+"阅读");
-        //holder.readed.setText(datas.get(position).getEssence());
-        Glide.with(context).load(datas.get(position).getPic_path()).into(holder.head);
-        //Glide.with(context).load(datas.get(position).getUserAvatar()).into(holder.cream);
-
+        holder.name.setText(datas_PartakeMyReply.get(position).getBoard_name());
+        holder.readed.setText(datas_PartakeMyReply.get(position).getHits()+"阅读");
+        Glide.with(context).load(datas_PartakeMyReply.get(position).getPic_path()).into(holder.head);
 
         //设置点击事件
         holder.total.setOnClickListener(new View.OnClickListener() {
@@ -77,28 +77,13 @@ public class CollectionRecycle_adapter extends RecyclerView.Adapter<CollectionRe
                 return false;
             }
         });
-
     }
-
-    //设置回调接口
-    public interface OnItemClickLitener {
-        void onitemclick(View view, int pos);
-        void onitemlongclick(View view, int pos);
-    }
-
-    private  OnItemClickLitener onItemClickLitener;
-
-    public void setOnItemClickLitener(OnItemClickLitener onItemClickLitener) {
-        this.onItemClickLitener = onItemClickLitener;
-    }
-
 
     @Override
     public int getItemCount() {
-        return datas.size();
+        Log.i("TAG", "datas.size()="+datas_PartakeMyReply.size());
+        return datas_PartakeMyReply.size();
     }
-
-    //自定义的ViewHolder，持有每个Item的的所有界面元素
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         RelativeLayout total;
@@ -115,13 +100,10 @@ public class CollectionRecycle_adapter extends RecyclerView.Adapter<CollectionRe
             head = (ImageView)view.findViewById(R.id.item_collection_imageview_head);
         }
     }
-    public void addAll(List list, boolean isClear){
-        if(isClear){
-            datas.clear();
-        }
-        datas.addAll(list);
-        notifyDataSetChanged();
+
+    private CollectionRecycle_adapter.OnItemClickLitener onItemClickLitener;
+
+    public void setOnItemClickLitener(CollectionRecycle_adapter.OnItemClickLitener onItemClickLitener) {
+        this.onItemClickLitener = onItemClickLitener;
     }
-
-
 }

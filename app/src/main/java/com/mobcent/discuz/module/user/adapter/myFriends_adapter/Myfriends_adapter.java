@@ -26,20 +26,18 @@ import discuz.com.net.service.model.bean.MyFriend.Lists;
  */
 
 public class Myfriends_adapter extends RecyclerView.Adapter<Myfriends_adapter.ViewHolder> {
-    public static List<Lists> datas;
+    public static List<Lists> datas_myFriendsSearch;
     private Context context;
     private EditText edittext;
     private Button search_button;
     private String nickname;
     public void setMyfriends_adapter(Context context, List datass) {
-        if (datas==null){
-            this.datas = datass;
-
+        if (datas_myFriendsSearch==null){
+            this.datas_myFriendsSearch = datass;
         }else {
-            datas.addAll(datass);
+            datas_myFriendsSearch.addAll(datass);
             notifyDataSetChanged();
         }
-
         this.context=context;
     }
     @Override
@@ -51,16 +49,16 @@ public class Myfriends_adapter extends RecyclerView.Adapter<Myfriends_adapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        String date= DateUtils.stampToDate(datas.get(position).getDateline());
-        String signture=datas.get(position).getSignture();
-        holder.nickname.setText(datas.get(position).getName());
-        holder.grade.setText(datas.get(position).getUserTitle());
+        String date= DateUtils.stampToDate(datas_myFriendsSearch.get(position).getDateline());
+        String signture=datas_myFriendsSearch.get(position).getSignture();
+        holder.nickname.setText(datas_myFriendsSearch.get(position).getName());
+        holder.grade.setText(datas_myFriendsSearch.get(position).getUserTitle());
         if (!signture.equals("")){
-            holder.other.setText(datas.get(position).getSignture());
+            holder.other.setText(datas_myFriendsSearch.get(position).getSignture());
         }
 
         holder.date.setText(date);
-        Glide.with(context).load(datas.get(position).getIcon()).into(holder.head);
+        Glide.with(context).load(datas_myFriendsSearch.get(position).getIcon()).into(holder.head);
         //设置点击事件
         holder.total.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +81,7 @@ public class Myfriends_adapter extends RecyclerView.Adapter<Myfriends_adapter.Vi
 
     @Override
     public int getItemCount() {
-        return datas.size();
+        return datas_myFriendsSearch.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -101,13 +99,13 @@ public class Myfriends_adapter extends RecyclerView.Adapter<Myfriends_adapter.Vi
         }
     }
     public void clear(){
-        datas.clear();
+        datas_myFriendsSearch.clear();
     }
     public void addAll(List<Lists> list, boolean isClear){
         if(isClear){
-            datas.clear();
+            datas_myFriendsSearch.clear();
         }
-        datas.addAll(list);
+        datas_myFriendsSearch.addAll(list);
         notifyDataSetChanged();
     }
 

@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="头像"
+            android:text="@string/mc_forum_icon_label"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -53,7 +53,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="签名"
+            android:text="@string/mc_forum_user_sign_text"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -84,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="手机"
+            android:text="@string/mc_forum_verify_mobile"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -114,7 +114,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="QQ"
+            android:text="@string/mc_froum_about_QQ"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -144,7 +144,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="常用邮箱"
+            android:text="@string/mc_froum_about_emails"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -175,7 +175,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="毕业院校"
+            android:text="@string/mc_forum_user_graduate"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -206,7 +206,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="学历"
+            android:text="@string/mc_forum_user_qualification"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -238,7 +238,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="公司"
+            android:text="@string/mc_forum_user_company"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -269,7 +269,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="职业"
+            android:text="@string/mc_forum_user_occupation"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"
@@ -299,7 +299,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="昵称"
+            android:text="@string/mc_forum_nick_name"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:layout_marginLeft="20dp"

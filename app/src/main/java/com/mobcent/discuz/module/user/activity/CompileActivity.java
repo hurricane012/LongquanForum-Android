@@ -187,7 +187,8 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
                 photoPath = file.getAbsolutePath();
                 Uri value = Uri.fromFile(file);
                 intent2.putExtra(MediaStore.EXTRA_OUTPUT, value);
-                Intent intent = Intent.createChooser(intent1,getResources().getString(R.string.vp_option_select));
+
+                Intent intent = Intent.createChooser(intent1,"请选择");
                 intent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{intent2});
 
                 startActivityForResult(intent, 101);
@@ -197,7 +198,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //签名
             case R.id.compile_signature:
                 Intent intent3=new Intent(this,EditActivity.class);
-                intent3.putExtra("title",getResources().getString(R.string.mc_forum_user_sign_text));
+                intent3.putExtra("title","签名");
                 intent3.putExtra("content",sign);
                 intent3.putExtra("single",false);
                 intent3.putExtra("from","signature");
@@ -207,7 +208,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //手机
             case R.id.compile_cellphone:
                 Intent intent4=new Intent(this,EditActivity.class);
-                intent4.putExtra("title",getResources().getString(R.string.mc_forum_discover_myphone));
+                intent4.putExtra("title","手机");
                 intent4.putExtra("content",mobile);
                 intent4.putExtra("single",true);
                 intent4.putExtra("phone",true);
@@ -218,7 +219,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //QQ
             case R.id.compile_qq:
                 Intent intent5=new Intent(this,EditActivity.class);
-                intent5.putExtra("title",getResources().getString(R.string.mc_share_tencent));
+                intent5.putExtra("title","QQ");
                 intent5.putExtra("content",qq);
                 intent5.putExtra("single",true);
                 intent5.putExtra("from","compile_qq");
@@ -227,7 +228,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //电子邮件
             case R.id.compile_email:
                 Intent intent6=new Intent(this,EditActivity.class);
-                intent6.putExtra("title",getResources().getString(R.string.mc_froum_email));
+                intent6.putExtra("title","电子邮件");
                 intent6.putExtra("content",email);
                 intent6.putExtra("single",true);
                 intent6.putExtra("from","compile_email");
@@ -236,7 +237,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //毕业院校
             case R.id.compile_graduate_institutions:
                 Intent intent7=new Intent(this,EditActivity.class);
-                intent7.putExtra("title",getResources().getString(R.string.mc_froum_graduate));
+                intent7.putExtra("title","毕业院校");
                 intent7.putExtra("content",graduateschool);
                 intent7.putExtra("single",false);
                 intent7.putExtra("from","compile_graduate_institutions");
@@ -245,7 +246,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //公司
             case R.id.compile_company:
                 Intent intent8=new Intent(this,EditActivity.class);
-                intent8.putExtra("title",getResources().getString(R.string.mc_froum_company));
+                intent8.putExtra("title","公司");
                 intent8.putExtra("content",company);
                 intent8.putExtra("single",false);
                 intent8.putExtra("from","compile_company");
@@ -255,7 +256,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //职业
             case R.id.compile_profession:
                 Intent intent9=new Intent(this,EditActivity.class);
-                intent9.putExtra("title",getResources().getString(R.string.mc_form_user_job));
+                intent9.putExtra("title","职业");
                 intent9.putExtra("content",occupation);
                 intent9.putExtra("single",true);
                 intent9.putExtra("from","compile_profession");
@@ -265,7 +266,7 @@ public class CompileActivity extends BasePopActivity implements View.OnClickList
             //昵称
             case R.id.compile_nickname:
                 Intent intent10=new Intent(this,EditActivity.class);
-                intent10.putExtra("title",getResources().getString(R.string.mc_froum_nickname));
+                intent10.putExtra("title","昵称");
                 intent10.putExtra("content",nickname);
                 intent10.putExtra("single",true);
                 intent10.putExtra("from","compile_nickname");

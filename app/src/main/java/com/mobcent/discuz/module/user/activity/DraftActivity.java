@@ -18,6 +18,7 @@ public class DraftActivity extends BasePopActivity {
     @Override
         public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_draft);
 
         xRecycler= (XRecyclerView) findViewById(R.id.draft_xRecycler);
 
@@ -73,10 +74,5 @@ public class DraftActivity extends BasePopActivity {
     @Override
     protected Fragment initContentFragment() {
         return null;
-    }
-
-    @Override
-    public int initLayout() {
-        return R.layout.activity_draft;
     }
 }
